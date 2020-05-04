@@ -1,0 +1,437 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Assets/Player/heroV5_64.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Tileset/tiles1.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Ladder_t.gd" type="Script" id=4]
+[ext_resource path="res://Ladder_m.gd" type="Script" id=5]
+[ext_resource path="res://Ladder_b.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Ladder2.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "tiles1.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 16, 32, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "tiles1.png 1"
+1/texture = ExtResource( 3 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 448, 192, 64 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 64, 64 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 272 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "air_left"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 52, 53, 54, 55 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 56, 57, 58, 59 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20, 21, 22 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "idle_left"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "walk_left"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 15, 22 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 0, 40, 64, 40, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=13]
+0/name = "tiles1.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 64, 128, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 12 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="Game" type="Node2D"]
+
+[node name="Ladder1" type="Node2D" parent="."]
+
+[node name="Ladder_t" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, -288 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_t"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 72
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_t"]
+visible = false
+position = Vector2( 0, 16 )
+shape = SubResource( 1 )
+
+[node name="Ladder_m" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, 160 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_m"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_m"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Ladder_m3" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, 32 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_m3"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_m3"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Ladder_m4" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, -32 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_m4"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_m4"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Ladder_m5" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, -96 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_m5"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_m5"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Ladder_m6" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, -160 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_m6"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_m6"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Ladder_m7" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, -224 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_m7"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_m7"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Ladder_m2" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, 96 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_m2"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 70
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_m2"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Ladder_b" type="Area2D" parent="Ladder1" groups=[
+"Ladder",
+]]
+position = Vector2( 160, 224 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ladder1/Ladder_b"]
+texture = ExtResource( 3 )
+vframes = 10
+hframes = 10
+frame = 71
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder1/Ladder_b"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Ladder2" type="Area2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="TileMap" type="TileMap" parent="Ladder2"]
+tile_set = SubResource( 2 )
+format = 1
+tile_data = PoolIntArray( -327674, 1, 2, -262138, 1, 0, -196602, 1, 0, -131066, 1, 0, -65530, 1, 0, 6, 1, 0, 65542, 1, 0, 131078, 1, 0, 196614, 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder2"]
+position = Vector2( 416, -16 )
+shape = SubResource( 3 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 257.741, 43.1336 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 1 )
+vframes = 19
+hframes = 4
+frame = 22
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+anims/air_left = SubResource( 4 )
+anims/air_right = SubResource( 5 )
+anims/climp = SubResource( 6 )
+anims/idle_left = SubResource( 7 )
+anims/idle_right = SubResource( 8 )
+anims/walk_left = SubResource( 9 )
+anims/walk_right = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
+position = Vector2( 0.353546, 7.07108 )
+shape = SubResource( 11 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="Level" type="TileMap" parent="."]
+tile_set = SubResource( 13 )
+format = 1
+tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0 )
+[connection signal="body_entered" from="Ladder1/Ladder_t" to="Ladder1/Ladder_t" method="_on_Ladder_t_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_t" to="Ladder1/Ladder_t" method="_on_Ladder_t_body_exited"]
+[connection signal="body_entered" from="Ladder1/Ladder_m" to="Ladder1/Ladder_m" method="_on_Ladder_m_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_m" to="Ladder1/Ladder_m" method="_on_Ladder_m_body_exited"]
+[connection signal="body_entered" from="Ladder1/Ladder_m3" to="Ladder1/Ladder_m3" method="_on_Ladder_m_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_m3" to="Ladder1/Ladder_m3" method="_on_Ladder_m_body_exited"]
+[connection signal="body_entered" from="Ladder1/Ladder_m4" to="Ladder1/Ladder_m4" method="_on_Ladder_m_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_m4" to="Ladder1/Ladder_m4" method="_on_Ladder_m_body_exited"]
+[connection signal="body_entered" from="Ladder1/Ladder_m5" to="Ladder1/Ladder_m5" method="_on_Ladder_m_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_m5" to="Ladder1/Ladder_m5" method="_on_Ladder_m_body_exited"]
+[connection signal="body_entered" from="Ladder1/Ladder_m6" to="Ladder1/Ladder_m6" method="_on_Ladder_m_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_m6" to="Ladder1/Ladder_m6" method="_on_Ladder_m_body_exited"]
+[connection signal="body_entered" from="Ladder1/Ladder_m7" to="Ladder1/Ladder_m7" method="_on_Ladder_m_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_m7" to="Ladder1/Ladder_m7" method="_on_Ladder_m_body_exited"]
+[connection signal="body_entered" from="Ladder1/Ladder_m2" to="Ladder1/Ladder_m2" method="_on_Ladder_m_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_m2" to="Ladder1/Ladder_m2" method="_on_Ladder_m_body_exited"]
+[connection signal="body_entered" from="Ladder1/Ladder_b" to="Ladder1/Ladder_b" method="_on_Ladder_b_body_entered"]
+[connection signal="body_exited" from="Ladder1/Ladder_b" to="Ladder1/Ladder_b" method="_on_Ladder_b_body_exited"]
+[connection signal="body_entered" from="Ladder2" to="Ladder2" method="_on_Ladder2_body_entered"]
+[connection signal="body_exited" from="Ladder2" to="Ladder2" method="_on_Ladder2_body_exited"]
+[connection signal="animation_finished" from="Player/AnimationPlayer" to="Player" method="_on_AnimationPlayer_animation_finished"]
